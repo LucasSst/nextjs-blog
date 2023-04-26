@@ -23,6 +23,7 @@ export default function PostPage({
   posts,
   globalData,
 }) {
+    console.log(posts)
   return (
     <Layout>
       <SEO
@@ -60,14 +61,16 @@ export default function PostPage({
 
 export const getServerSideProps = async ({ params }) => {
   const globalData = getGlobalData();
+  
   const posts = await getPostBySlug(params.id);
- 
+  
 
   return {
     props: {
       globalData,
       posts,
     },
+  
   };
 };
 
